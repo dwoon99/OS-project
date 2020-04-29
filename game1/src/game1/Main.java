@@ -13,7 +13,7 @@ public class Main extends JPanel implements KeyListener {
 
     public Main(){
         JPanel panel = new JPanel();
-        panel.setSize(500,600);
+        panel.setSize(499,600);
         panel.setBackground(Color.BLACK);
         setFocusable(true);
         addKeyListener(this);
