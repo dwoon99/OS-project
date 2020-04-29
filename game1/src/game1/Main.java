@@ -1,47 +1,10 @@
 package game1;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-class Backgroundsound {
-
-    public void main_sound() {
-        File bgm;
-        AudioInputStream stream;
-        AudioFormat format;
-        DataLine.Info info;
-
-        bgm = new File("C:/배경음악/cart.wav"); 
-
-        Clip clip;
-
-        try {
-            stream = AudioSystem.getAudioInputStream(bgm);
-            format = stream.getFormat();
-            info = new DataLine.Info(Clip.class, format);
-            clip = (Clip) AudioSystem.getLine(info);
-            clip.open(stream);
-            clip.start();
-
-        } catch (Exception e) {
-            System.out.println("err : " + e);
-        }
-
-    }
-
-}
 public class Main extends JPanel implements KeyListener {
 
     private int x=20 , y = 20 , x2 =60 , y2 = 60 ,sx=1, sy=1;
@@ -69,13 +32,13 @@ public class Main extends JPanel implements KeyListener {
                 g.setColor(Color.BLUE);
                 Font yFont = new Font("Courier New", 1, 50);
                 g.setFont(yFont);
-                g.drawString("Welcome", 170, 190);
+                g.drawString("Welcome", 160, 180);
                 Font yFon = new Font("Courier New", 1, 40);
                 g.setFont(yFon);
-                g.drawString("Car Game", 150, 240);
+                g.drawString("Car Game", 160, 250);
                 Font yFo = new Font("Courier New", 1, 30);
                 g.setFont(yFo);
-                g.drawString("Made by Dwooooooon", 110, 380);
+                g.drawString("Made by SAMAGRA GUPTA", 120, 400);
             }
         }
 
@@ -174,22 +137,14 @@ public class Main extends JPanel implements KeyListener {
             Font myFont = new Font ("Courier New", 1, 37);
             g.setFont(myFont);
             g.drawString("GAME OVER",160,280);
-
-            g.setColor(Color.ORANGE);
-            Font Font = new Font ("TimesRoman", 1, 17);
-            g.setFont(Font);
-            g.drawString("Your Score :"+score, 180,340);
-            
         }
-        
 
         repaint();
 
     }
-    
+
     public static void main(String[] args) {
-    	
-    	Backgroundsound test = new Backgroundsound();
+
         JFrame frame = new JFrame("Practice");
         Main ball = new Main();
         frame.add(ball);
@@ -198,16 +153,9 @@ public class Main extends JPanel implements KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,600);
         frame.setVisible(true);
-        while (true) {
-            try {
-                test.main_sound();
-                Thread.sleep(10000);
-            } catch (Exception e) {
-
-            }
-        }
 
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -217,10 +165,10 @@ public class Main extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int c = e.getKeyCode();
 
-        if(c==KeyEvent.VK_RIGHT && rx+40 <= 350){  //단축키 변경
+        if(c==KeyEvent.VK_M && rx+40 <= 350){
             rx = rx + 7;
         }
-        if(c==KeyEvent.VK_LEFT && rx >= 130){
+        if(c==KeyEvent.VK_N && rx >= 130){
             rx = rx - 7;
         }
     }
